@@ -4,5 +4,6 @@ export const endpoints = {
         allMovies: (page:number) =>{
             return `discover/movie?page=${page}`
         },
+        allGenres: 'genre/movie/list'
     }
 }

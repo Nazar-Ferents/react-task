@@ -1,7 +1,7 @@
 import {createBrowserRouter} from "react-router-dom";
 import MoviesPage from "../pages/MoviesPage.tsx";
 import MainLayout from "../layouts/MainLayout.tsx";
-import GenresListPage from "../pages/GenresListPage.tsx";
+import FilmsByGenres from "../pages/FilmsByGenres.tsx";
 import MovieDetailsPage from "../pages/MovieDetailsPage.tsx";
 
 
@@ -10,7 +10,7 @@ export const routes = createBrowserRouter([
            children:[
                {index:true,element:<MoviesPage/>},
                {path:'movie/:id',element:<MovieDetailsPage/>},
-               {path:'genres',element:<GenresListPage/>}
+               {path:'genres',element:<FilmsByGenres/>}
 
            ]
     }

@@ -1,0 +1,14 @@
+.badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    background: #333;
+    color: white;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.containerForBadges {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
