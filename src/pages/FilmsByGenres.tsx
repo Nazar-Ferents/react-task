@@ -1,4 +1,4 @@
-import {Outlet, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import MoviesByGenreListComponent from "../components/MovieComponents/MoviesByGenreListComponent/MoviesByGenreListComponent.tsx";
 
 const FilmsByGenres = () => {
@@ -10,7 +10,7 @@ const FilmsByGenres = () => {
                 genreID && <MoviesByGenreListComponent genreID={genreID} />
 
             }
-            <Outlet/>
+
 
 
         </div>
