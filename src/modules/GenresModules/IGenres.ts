@@ -4,5 +4,5 @@ export interface IGenre {
 }
 
 export interface IGenres {
-  genres: Genres[];
+  genres: IGenre[];
 }

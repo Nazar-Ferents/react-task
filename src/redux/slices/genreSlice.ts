@@ -1,9 +1,10 @@
 import type {IGenre} from "../../modules/GenresModules/IGenres.ts";
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import {createSlice, type PayloadAction} from "@reduxjs/toolkit";
 import {loadGenres} from "../functions/functionsForGenreSlice.ts";
 
 interface IGenreSlice {
-    genres: IGenre[]
+    genres: IGenre[],
+
 }
 
 const GenreInitialState:IGenreSlice = {genres: []};
@@ -22,6 +23,7 @@ export const genreSlice = createSlice({
                 (state) => {
                 state.genres = []
                 })
+
     }
 })
 

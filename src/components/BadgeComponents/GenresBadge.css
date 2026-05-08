@@ -5,7 +5,15 @@
     color: white;
     font-size: 12px;
     margin-right: 5px;
+    text-decoration: none;
+    transition: 0.2s;
 }
+
+.badge:hover {
+    background: #555;
+}
+
+
 
 .containerForBadges {
     display: flex;

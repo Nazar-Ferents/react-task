@@ -1,4 +1,4 @@
-import MoviesListComponent from "../components/MovieComponents/MoviesList/MoviesListComponent.tsx";
+import MoviesListComponent from "../components/MovieComponents/MoviesListComponent/MoviesListComponent.tsx";
 import PaginationForMovies from "../paginations/paginationForMovies.tsx";
 
 const MoviesPage = () => {
