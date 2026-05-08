@@ -1,51 +1,57 @@
-import {createSlice, isFulfilled, type PayloadAction} from "@reduxjs/toolkit";
+import {createSlice, type PayloadAction} from "@reduxjs/toolkit";
 import type {IMovie} from "../../modules/MoviesModules/IMovie.ts";
 import {loadMovies, loadMoviesByGenres} from "../functions/functionsForMovieSlice.ts";
 
 interface IMovieSlice {
     movies: IMovie[];
-    loadState:boolean
+    moviesByGenres: IMovie[];
+    moviesStatus:'initial'|'loading'|'success'|'error';
+    moviesByGenreStatus:'initial'|'loading'|'success'|'error';
 }
 
-const movieInitialState:IMovieSlice = {movies:[],loadState: false}
+const movieInitialState:IMovieSlice = {movies:[],moviesByGenres:[], moviesStatus: 'initial',moviesByGenreStatus: 'initial'}
 
 
 export const movieSlice = createSlice({
     name: "movieSlice",
     initialState:movieInitialState,
-    reducers:{
-        changeLoadState:(state,action:PayloadAction<boolean>)=>{
-            state.loadState=action.payload;
-        }
-    },
+    reducers:{},
     extraReducers:(builder) => {
         builder
+            .addCase(loadMovies.pending,
+                (state) =>{
+                state.moviesStatus = 'loading'
+                })
 
             .addCase(loadMovies.fulfilled,
                 (state, action:PayloadAction<IMovie[]>) => {
                 state.movies = action.payload;
+                state.moviesStatus = 'success'
 
                 })
             .addCase(loadMovies.rejected,
                 (state) =>{
                 state.movies = []
+                    state.moviesStatus = 'error'
 
+                })
+            .addCase(loadMoviesByGenres.pending,
+                (state) => {
+                state.moviesByGenreStatus = 'loading'
                 })
             .addCase(loadMoviesByGenres.fulfilled,
                 (state,action:PayloadAction<IMovie[]>) =>{
 
-                state.movies = action.payload;
+                state.moviesByGenres = action.payload;
+                state.moviesByGenreStatus = 'success'
 
             })
             .addCase(loadMoviesByGenres.rejected,
                 (state)=>{
-                state.movies = []
+                state.moviesByGenres = []
+                    state.moviesByGenreStatus = 'error'
             })
-            .addMatcher(isFulfilled(loadMovies,loadMoviesByGenres),
-                (state => {
 
-                state.loadState = true;
-            }))
 
     }
 })

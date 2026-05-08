@@ -7,7 +7,7 @@ import {useSearchParams} from "react-router-dom";
 import {genreSliceActions} from "../../../redux/slices/genreSlice.ts";
 
 const MoviesListComponent = () => {
-    const {movies, loadState} = useAppSelector(({movieSlice}) => movieSlice);
+    const {movies, moviesStatus} = useAppSelector(({movieSlice}) => movieSlice);
     const {genres} = useAppSelector(({genreSlice}) => genreSlice);
     const dispatch = useAppDispatch();
 
@@ -18,14 +18,18 @@ const MoviesListComponent = () => {
     useEffect(() => {
 
         dispatch(movieSliceActions.loadMovies(pg))
-        dispatch(genreSliceActions.loadGenres())
-    },[query])
+        if(genres){
+            dispatch(genreSliceActions.loadGenres())
+        }
+    },[pg])
 
-
+if (moviesStatus === 'loading') {
+    return <div>Loading...</div>
+}
 
     return (
         <div>
-            {!loadState && <div>Loading...</div>}
+
             {
                 movies.map((movie) => (<MovieListCardComponent key={movie.id} movie={movie} genres={genres} />))
             }

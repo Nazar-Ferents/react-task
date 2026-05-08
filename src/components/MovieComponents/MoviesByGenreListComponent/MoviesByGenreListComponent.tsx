@@ -2,7 +2,7 @@ import {type FC, useEffect} from "react";
 import {useAppSelector} from "../../../redux/hooks/useAppSelector.tsx";
 import {useAppDispatch} from "../../../redux/hooks/useAppDispatch.tsx";
 import {movieSliceActions} from "../../../redux/slices/movieSlice.ts";
-import {MovieListCardComponent} from "../../MovieComponents/MovieListCardComponent/MovieListCardComponent.tsx";
+import {MovieListCardComponent} from "../MovieListCardComponent/MovieListCardComponent.tsx";
 import {genreSliceActions} from "../../../redux/slices/genreSlice.ts";
 
 type PropsType = {
@@ -10,7 +10,7 @@ type PropsType = {
 }
 const MoviesByGenreListComponent:FC<PropsType> = ({genreID}) => {
 
-    const {movies,loadState} = useAppSelector(({movieSlice}) => movieSlice );
+    const {moviesByGenres,moviesByGenreStatus} = useAppSelector(({movieSlice}) => movieSlice );
     const{genres} = useAppSelector(({genreSlice}) => genreSlice)
     const dispatch = useAppDispatch()
 
@@ -19,15 +19,22 @@ const MoviesByGenreListComponent:FC<PropsType> = ({genreID}) => {
         if(genreID){
 
             dispatch(movieSliceActions.loadMoviesByGenres(Number(genreID)))
-            dispatch(genreSliceActions.loadGenres())
+            if(genres.length === 0){
+                dispatch(genreSliceActions.loadGenres())
+            }
+
         }
     }, [genreID]);
 
+    if(moviesByGenreStatus === 'loading'){
+        return  <div>Loading...</div>
+    }
+
     return (
         <div>
-            {!loadState && <div>Loading...</div>}
+
             {
-                movies.map(movie => (<MovieListCardComponent key={movie.id} movie={movie} genres={genres} />))
+                moviesByGenres.map(movie => (<MovieListCardComponent key={movie.id} movie={movie} genres={genres} />))
             }
 
         </div>
