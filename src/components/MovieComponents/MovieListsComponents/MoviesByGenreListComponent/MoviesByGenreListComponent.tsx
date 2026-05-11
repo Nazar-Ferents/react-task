@@ -1,12 +1,13 @@
 import {type FC, useEffect} from "react";
-import {useAppSelector} from "../../../redux/hooks/useAppSelector.tsx";
-import {useAppDispatch} from "../../../redux/hooks/useAppDispatch.tsx";
-import {movieSliceActions} from "../../../redux/slices/movieSlice.ts";
+import {useAppSelector} from "../../../../redux/hooks/useAppSelector.tsx";
+import {useAppDispatch} from "../../../../redux/hooks/useAppDispatch.tsx";
+import {movieSliceActions} from "../../../../redux/slices/movieSlice.ts";
 import {MovieListCardComponent} from "../MovieListCardComponent/MovieListCardComponent.tsx";
-import {genreSliceActions} from "../../../redux/slices/genreSlice.ts";
+import {genreSliceActions} from "../../../../redux/slices/genreSlice.ts";
 
 type PropsType = {
     genreID: string,
+
 }
 const MoviesByGenreListComponent:FC<PropsType> = ({genreID}) => {
 

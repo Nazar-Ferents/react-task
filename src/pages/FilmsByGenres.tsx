@@ -1,5 +1,5 @@
 import {useParams} from "react-router-dom";
-import MoviesByGenreListComponent from "../components/MovieComponents/MoviesByGenreListComponent/MoviesByGenreListComponent.tsx";
+import MoviesByGenreListComponent from "../components/MovieComponents/MovieListsComponents/MoviesByGenreListComponent/MoviesByGenreListComponent.tsx";
 
 const FilmsByGenres = () => {
 

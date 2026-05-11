@@ -1,10 +1,10 @@
 import {useEffect} from "react";
 import {MovieListCardComponent} from "../MovieListCardComponent/MovieListCardComponent.tsx";
-import {useAppSelector} from "../../../redux/hooks/useAppSelector.tsx";
-import {useAppDispatch} from "../../../redux/hooks/useAppDispatch.tsx";
-import {movieSliceActions} from "../../../redux/slices/movieSlice.ts";
+import {useAppSelector} from "../../../../redux/hooks/useAppSelector.tsx";
+import {useAppDispatch} from "../../../../redux/hooks/useAppDispatch.tsx";
+import {movieSliceActions} from "../../../../redux/slices/movieSlice.ts";
 import {useSearchParams} from "react-router-dom";
-import {genreSliceActions} from "../../../redux/slices/genreSlice.ts";
+import {genreSliceActions} from "../../../../redux/slices/genreSlice.ts";
 
 const MoviesListComponent = () => {
     const {movies, moviesStatus} = useAppSelector(({movieSlice}) => movieSlice);
@@ -18,7 +18,7 @@ const MoviesListComponent = () => {
     useEffect(() => {
 
         dispatch(movieSliceActions.loadMovies(pg))
-        if(genres){
+        if(genres.length === 0){
             dispatch(genreSliceActions.loadGenres())
         }
     },[pg])

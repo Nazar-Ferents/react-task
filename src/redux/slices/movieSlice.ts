@@ -1,15 +1,18 @@
 import {createSlice, type PayloadAction} from "@reduxjs/toolkit";
 import type {IMovie} from "../../modules/MoviesModules/IMovie.ts";
-import {loadMovies, loadMoviesByGenres} from "../functions/functionsForMovieSlice.ts";
+import {loadMovies, loadMoviesByGenres, loadMoviesByID} from "../functions/functionsForMovieSlice.ts";
+import type {IMovieDetails} from "../../modules/MoviesModules/IMovieDetails.ts";
 
 interface IMovieSlice {
     movies: IMovie[];
     moviesByGenres: IMovie[];
+    movieDetails: IMovieDetails | null;
     moviesStatus:'initial'|'loading'|'success'|'error';
     moviesByGenreStatus:'initial'|'loading'|'success'|'error';
+    movieDetailsStatus:'initial'|'loading'|'success'|'error';
 }
 
-const movieInitialState:IMovieSlice = {movies:[],moviesByGenres:[], moviesStatus: 'initial',moviesByGenreStatus: 'initial'}
+const movieInitialState:IMovieSlice = {movies:[],moviesByGenres:[], movieDetails:null, moviesStatus: 'initial',moviesByGenreStatus: 'initial',movieDetailsStatus:'initial'};
 
 
 export const movieSlice = createSlice({
@@ -51,11 +54,25 @@ export const movieSlice = createSlice({
                 state.moviesByGenres = []
                     state.moviesByGenreStatus = 'error'
             })
+            .addCase(loadMoviesByID.pending,
+                (state) => {
+                state.movieDetailsStatus = 'loading'
+                })
+            .addCase(loadMoviesByID.fulfilled,
+                (state, action:PayloadAction<IMovieDetails>) => {
+                state.movieDetails = action.payload;
+                state.movieDetailsStatus = 'success'
+                })
+            .addCase(loadMoviesByID.rejected,
+                (state) => {
+                state.movieDetails = null;
+                state.movieDetailsStatus = 'error'
+                })
 
 
     }
 })
 
 export const movieSliceActions = {
-    ...movieSlice.actions,loadMovies,loadMoviesByGenres
+    ...movieSlice.actions,loadMovies,loadMoviesByGenres,loadMoviesByID
 }

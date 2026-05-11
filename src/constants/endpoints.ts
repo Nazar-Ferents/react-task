@@ -8,6 +8,9 @@ export const endpoints = {
 
         allMoviesByGenre: (genreID:number) =>{
             return `discover/movie?with_genres=${genreID}`
+        },
+        movieByID: (movieID:number) =>{
+            return `movie/${movieID}`
         }
     }
 }

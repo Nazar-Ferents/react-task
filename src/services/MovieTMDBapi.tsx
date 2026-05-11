@@ -1,6 +1,6 @@
 import axios from "axios";
-const baseURL = import.meta.env.VITE_MOVIE_TMDB_URL;
-const accessToken = import.meta.env.VITE_MOVIE_ACCESS_TOKEN;
+import {accessToken, baseURL} from "../config/constants.ts";
+
 
 
 export const movieTMDBapi = axios.create({
