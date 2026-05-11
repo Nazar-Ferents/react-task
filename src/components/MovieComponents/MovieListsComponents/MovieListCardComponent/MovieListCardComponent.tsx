@@ -29,7 +29,8 @@ export const MovieListCardComponent:FC<MovieListCardComponentPropsType> = ({movi
             </div>
             <p>{movie.overview}</p>
             <div className='containerForBadges'>
-                {movieGenres.map(movieGenre => (<GenreBadge key={movieGenre.id} name={movieGenre.name} genreID={movieGenre.id}/>))}
+                {movieGenres.map(movieGenre =>
+                    (<GenreBadge key={movieGenre.id} name={movieGenre.name} genreID={movieGenre.id}/>))}
             </div>
             <StarComponent rating={movie.vote_average}/>
 

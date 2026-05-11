@@ -2,7 +2,7 @@ import {type FC, useEffect} from "react";
 import {useAppSelector} from "../../../../redux/hooks/useAppSelector.tsx";
 import {useAppDispatch} from "../../../../redux/hooks/useAppDispatch.tsx";
 import {movieSliceActions} from "../../../../redux/slices/movieSlice.ts";
-import MovieDetailsCardComponent from "../MovieDetailsCardComponent/MovieDetailsCardComponent.tsx";
+import MovieDetailsCardComponent from "../MovieDetailsCardComponent/MovieDetailsCardComponent/MovieDetailsCardComponent.tsx";
 
 type PropsType = {
     movieID: string
