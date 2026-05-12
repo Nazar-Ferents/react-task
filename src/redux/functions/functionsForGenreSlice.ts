@@ -10,7 +10,7 @@ export const loadGenres = createAsyncThunk(
             return thunkAPI.fulfillWithValue(genres)
         }
         catch(error){
-            return thunkAPI.rejectWithValue(error)
+            return thunkAPI.rejectWithValue('Something went wrong');
         }
     }
 )

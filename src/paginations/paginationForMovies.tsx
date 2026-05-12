@@ -4,12 +4,19 @@ const PaginationForMovies = () => {
 
     const [query, setQuery] = useSearchParams({pg:'1'});
     const currentPage = Number(query.get('pg')) || 1
+    const changePage = (newPage: number) => {
+        const params = new URLSearchParams(query);
+        params.set('pg',newPage.toString());
+        setQuery(params);
+
+        params.set('pg', newPage.toString());
+    }
     return (
         <div className="paginationForMovies">
             <button onClick={() => {
 
                     if(currentPage > 1){
-                        setQuery({pg:(currentPage - 1).toString()})
+                        changePage(currentPage - 1)
                     }
 
             }}>prev</button>
@@ -17,7 +24,7 @@ const PaginationForMovies = () => {
             <button onClick={() => {
 
                     if(currentPage < 500){
-                        setQuery({pg:(currentPage + 1).toString()})
+                        changePage(currentPage + 1)
                     }
                 }
             }>next</button>

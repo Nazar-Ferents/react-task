@@ -4,7 +4,7 @@ import type {IGenre} from "../../../../modules/GenresModules/IGenres.ts";
 import {GenreBadge} from "../../../BadgeComponents/BadgeComponent.tsx";
 import StarComponent from "../../../StarComponents/StarComponent.tsx";
 import {useNavigate} from "react-router-dom";
-import {posterURL} from "../../../../config/constants.ts";
+import {posterURL} from "../../../../constants/constants.ts";
 
 
 type MovieListCardComponentPropsType ={
@@ -18,13 +18,16 @@ export const MovieListCardComponent:FC<MovieListCardComponentPropsType> = ({movi
     const movieGenres = genres.filter(genre => movie.genre_ids.includes(genre.id))
     const navigate = useNavigate()
     const handleOnClick = () => {
+
         navigate(`/movie/${movie.id}`)
     }
     return (
 
         <div className='movieCard'>
             <div onClick={handleOnClick} >
-                <img src={poster} alt="PosterToMovie"/>
+                {movie.poster_path ? (<img src={poster} alt="PosterToMovie"/>) :
+                    (<div className='missingPoster'>'Poster to film missing'</div>)}
+
                 <h3>{movie.title}</h3>
             </div>
             <p>{movie.overview}</p>

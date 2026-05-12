@@ -8,7 +8,7 @@ const MovieLanguagesComponent:FC<MovieDetailsPropsType> = ({movieDetails}) => {
             <p>languages:</p>
             <ul>
                 {movieDetails.spoken_languages.map(
-                    (language) => (<li key={language.iso_639_1}>{language.name}</li>))}
+                    (language) => (<li key={language.iso_639_1}>{language.english_name}</li>))}
             </ul>
 
         </div>

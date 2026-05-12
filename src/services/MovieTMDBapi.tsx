@@ -1,5 +1,5 @@
 import axios from "axios";
-import {accessToken, baseURL} from "../config/constants.ts";
+import {accessToken, baseURL} from "../constants/constants.ts";
 
 
 

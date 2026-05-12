@@ -11,6 +11,9 @@ export const endpoints = {
         },
         movieByID: (movieID:number) =>{
             return `movie/${movieID}`
+        },
+        searchMovie: ({title,page}:{title:string,page:number})=> {
+            return `search/movie?query=${title}&include_adult=false&page=${page}`
         }
     }
 }
