@@ -5,6 +5,7 @@ import {useAppDispatch} from "../../../../redux/hooks/useAppDispatch.tsx";
 import {movieSliceActions} from "../../../../redux/slices/movieSlice.ts";
 import {useSearchParams} from "react-router-dom";
 import {genreSliceActions} from "../../../../redux/slices/genreSlice.ts";
+import LoaderComponent from "../../../LoaderComponents/LoaderComponent.tsx";
 
 const MoviesListComponent = () => {
     const {movies, moviesStatus} = useAppSelector(({movieSlice}) => movieSlice);
@@ -24,7 +25,7 @@ const MoviesListComponent = () => {
     },[pg])
 
 if (moviesStatus === 'loading') {
-    return <div>Loading...</div>
+    return <LoaderComponent/>
 }
 
     return (

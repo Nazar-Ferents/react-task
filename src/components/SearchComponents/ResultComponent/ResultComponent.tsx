@@ -4,6 +4,7 @@ import {useSearchParams} from "react-router-dom";
 import {useEffect} from "react";
 import {movieSliceActions} from "../../../redux/slices/movieSlice.ts";
 import {useAppDispatch} from "../../../redux/hooks/useAppDispatch.tsx";
+import LoaderComponent from "../../LoaderComponents/LoaderComponent.tsx";
 
 
 const ResultComponent = () => {
@@ -29,7 +30,7 @@ const ResultComponent = () => {
 
     },[title,pg])
 
-    if (movieSearchStatus === 'loading') return <div>Loading...</div>
+    if (movieSearchStatus === 'loading') return <LoaderComponent/>
 
     if (movieSearchStatus === 'success' && movieSearch.length === 0) return <div>No Movies found</div>
 

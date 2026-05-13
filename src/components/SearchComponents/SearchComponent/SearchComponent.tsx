@@ -9,7 +9,7 @@ interface ISearch {
 
 const SearchComponent = () => {
 
-    const {handleSubmit,register,reset} = useForm<ISearch>();
+    const {handleSubmit,register} = useForm<ISearch>();
     const navigate = useNavigate();
 
 
@@ -18,7 +18,7 @@ const SearchComponent = () => {
         const title = formData.title.trim();
         if(!title) return
         navigate(`/findingMovies?query=${encodeURIComponent(title)}&pg=1`)
-        reset()
+
 
     }
     return (

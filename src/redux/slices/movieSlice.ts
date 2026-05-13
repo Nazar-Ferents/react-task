@@ -3,6 +3,7 @@ import type {IMovie} from "../../modules/MoviesModules/IMovie.ts";
 import {loadFindingMovies, loadMovies, loadMoviesByGenres, loadMoviesByID} from "../functions/functionsForMovieSlice.ts";
 import type {IMovieDetails} from "../../modules/MoviesModules/IMovieDetails.ts";
 import type {IMoviesGeneral} from "../../modules/MoviesModules/IMoviesGeneral.ts";
+import type {StatusType} from "../../modules/MoviesModules/StatusType.ts";
 
 interface IMovieSlice {
     movies: IMovie[];
@@ -10,10 +11,10 @@ interface IMovieSlice {
     movieDetails: IMovieDetails | null;
     movieSearch: IMovie[];
     movieMeta: IMoviesGeneral | null;
-    moviesStatus:'initial'|'loading'|'success'|'error';
-    moviesByGenreStatus:'initial'|'loading'|'success'|'error';
-    movieDetailsStatus:'initial'|'loading'|'success'|'error';
-    movieSearchStatus:'initial'|'loading'|'success'|'error';
+    moviesStatus: StatusType;
+    moviesByGenreStatus: StatusType;
+    movieDetailsStatus: StatusType;
+    movieSearchStatus: StatusType;
 }
 
 const movieInitialState:IMovieSlice = {movies:[],moviesByGenres:[], movieDetails:null,movieSearch:[],movieMeta:null,

@@ -3,6 +3,7 @@ import {useAppSelector} from "../../../../redux/hooks/useAppSelector.tsx";
 import {useAppDispatch} from "../../../../redux/hooks/useAppDispatch.tsx";
 import {movieSliceActions} from "../../../../redux/slices/movieSlice.ts";
 import MovieDetailsCardComponent from "../MovieDetailsCardComponent/MovieDetailsCardComponent/MovieDetailsCardComponent.tsx";
+import LoaderComponent from "../../../LoaderComponents/LoaderComponent.tsx";
 
 type PropsType = {
     movieID: string
@@ -22,7 +23,7 @@ const MovieDetailsPageComponent:FC<PropsType> = ({movieID}) => {
     }, [movieID]);
 
    if (movieDetailsStatus === 'loading'){
-    return <div>Loading...</div>
+    return <LoaderComponent/>
     }
    if (!movieDetails) return null
 

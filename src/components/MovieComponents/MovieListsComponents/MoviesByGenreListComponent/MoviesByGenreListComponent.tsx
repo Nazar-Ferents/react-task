@@ -5,6 +5,7 @@ import {movieSliceActions} from "../../../../redux/slices/movieSlice.ts";
 import {MovieListCardComponent} from "../MovieListCardComponent/MovieListCardComponent.tsx";
 import {genreSliceActions} from "../../../../redux/slices/genreSlice.ts";
 import {useSearchParams} from "react-router-dom";
+import LoaderComponent from "../../../LoaderComponents/LoaderComponent.tsx";
 
 type PropsType = {
     genreID: string,
@@ -31,7 +32,7 @@ const MoviesByGenreListComponent:FC<PropsType> = ({genreID}) => {
     }, [genreID,pg]);
 
     if(moviesByGenreStatus === 'loading'){
-        return  <div>Loading...</div>
+        return  <LoaderComponent/>
     }
 
     return (
