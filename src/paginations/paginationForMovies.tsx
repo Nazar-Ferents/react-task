@@ -8,8 +8,6 @@ const PaginationForMovies = () => {
         const params = new URLSearchParams(query);
         params.set('pg',newPage.toString());
         setQuery(params);
-
-        params.set('pg', newPage.toString());
     }
     return (
         <div className="paginationForMovies">

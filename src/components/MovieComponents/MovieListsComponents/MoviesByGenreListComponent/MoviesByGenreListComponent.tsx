@@ -4,6 +4,7 @@ import {useAppDispatch} from "../../../../redux/hooks/useAppDispatch.tsx";
 import {movieSliceActions} from "../../../../redux/slices/movieSlice.ts";
 import {MovieListCardComponent} from "../MovieListCardComponent/MovieListCardComponent.tsx";
 import {genreSliceActions} from "../../../../redux/slices/genreSlice.ts";
+import {useSearchParams} from "react-router-dom";
 
 type PropsType = {
     genreID: string,
@@ -14,18 +15,20 @@ const MoviesByGenreListComponent:FC<PropsType> = ({genreID}) => {
     const {moviesByGenres,moviesByGenreStatus} = useAppSelector(({movieSlice}) => movieSlice );
     const{genres} = useAppSelector(({genreSlice}) => genreSlice)
     const dispatch = useAppDispatch()
+    const [query] = useSearchParams()
+    const pg = Number(query.get('pg')) || 1
 
     useEffect(() => {
 
         if(genreID){
 
-            dispatch(movieSliceActions.loadMoviesByGenres(Number(genreID)))
+            dispatch(movieSliceActions.loadMoviesByGenres({genreID:Number(genreID),page:pg}))
             if(genres.length === 0){
                 dispatch(genreSliceActions.loadGenres())
             }
 
         }
-    }, [genreID]);
+    }, [genreID,pg]);
 
     if(moviesByGenreStatus === 'loading'){
         return  <div>Loading...</div>

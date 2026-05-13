@@ -21,9 +21,10 @@ export const loadMovies = createAsyncThunk(
 
 export const loadMoviesByGenres = createAsyncThunk(
     'movieSlice/loadMoviesByGenres',
-    async (genreID:number,thunkAPI) => {
+    async ({genreID,page}:{genreID:number,page:number},thunkAPI) => {
         try {
-            const moviesByGenres = await getMoviesByGenres(genreID)
+            const moviesByGenres = await getMoviesByGenres({genreID,page});
+
 
             return thunkAPI.fulfillWithValue(moviesByGenres)
         }
