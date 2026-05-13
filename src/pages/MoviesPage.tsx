@@ -1,10 +1,13 @@
 import MoviesListComponent from "../components/MovieComponents/MovieListsComponents/MoviesListComponent/MoviesListComponent.tsx";
-import PaginationForMovies from "../paginations/paginationForMovies.tsx";
+import PaginationForMovies from "../components/PaginationComponents/paginationForMovies.tsx";
+import {useAppSelector} from "../redux/hooks/useAppSelector.tsx";
 
 const MoviesPage = () => {
+    const {movieMeta} = useAppSelector(({movieSlice}) => movieSlice)
+
     return (
         <div>
-            <PaginationForMovies/>
+            <PaginationForMovies meta={movieMeta}/>
 
             <MoviesListComponent/>
 

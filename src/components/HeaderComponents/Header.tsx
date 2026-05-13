@@ -5,16 +5,14 @@ import SearchComponent from "../SearchComponents/SearchComponent/SearchComponent
 
 const Header = () => {
     return (
-        <div>
+        <header>
 
-            <ul>
-                <li><Link to={'/'}>Movies</Link></li>
-                <li><Link to={'movieByGenres'}>Films By Genres</Link></li>
-            </ul>
+            <Link to={'/'}>Movies List</Link>
+
             <SearchComponent/>
             <UserInfoComponent />
 
-        </div>
+        </header>
     );
 };
 

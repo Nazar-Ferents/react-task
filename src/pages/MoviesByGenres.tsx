@@ -1,13 +1,15 @@
 import {useParams} from "react-router-dom";
 import MoviesByGenreListComponent from "../components/MovieComponents/MovieListsComponents/MoviesByGenreListComponent/MoviesByGenreListComponent.tsx";
-import PaginationForMovies from "../paginations/paginationForMovies.tsx";
+import PaginationForMovies from "../components/PaginationComponents/paginationForMovies.tsx";
+import {useAppSelector} from "../redux/hooks/useAppSelector.tsx";
 
-const FilmsByGenres = () => {
+const MoviesByGenres = () => {
+    const {movieByGenresMeta} = useAppSelector(({movieByGenresSlice}) => movieByGenresSlice)
 
     const {genreID} = useParams()
     return (
         <div>
-            <PaginationForMovies/>
+            <PaginationForMovies meta={movieByGenresMeta}/>
             {
                 genreID && <MoviesByGenreListComponent genreID={genreID} />
 
@@ -19,4 +21,4 @@ const FilmsByGenres = () => {
     );
 };
 
-export default FilmsByGenres;
+export default MoviesByGenres;

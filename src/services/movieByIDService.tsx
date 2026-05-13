@@ -1,5 +1,5 @@
 import type {IMovieDetails} from "../modules/MoviesModules/IMovieDetails.ts";
-import {movieTMDBapi} from "./MovieTMDBapi.tsx";
+import {movieTMDBapi} from "./movieTMDBapi.tsx";
 import {endpoints} from "../constants/endpoints.ts";
 
 

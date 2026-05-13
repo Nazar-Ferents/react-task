@@ -1,7 +1,11 @@
 import {useSearchParams} from "react-router-dom";
-import {useAppSelector} from "../redux/hooks/useAppSelector.tsx";
+import type {FC} from "react";
+import type {IMoviesGeneral} from "../../modules/MoviesModules/IMoviesGeneral.ts";
 
-const PaginationForMovies = () => {
+type PropsType = {
+    meta:IMoviesGeneral | null
+}
+const PaginationForMovies:FC<PropsType> = ({meta}) => {
 
     const [query, setQuery] = useSearchParams({pg:'1'});
     const currentPage = Number(query.get('pg')) || 1
@@ -11,8 +15,8 @@ const PaginationForMovies = () => {
         setQuery(params);
     }
 
-    const{movieMeta} = useAppSelector(({movieSlice}) => movieSlice)
-    const totalPages = Math.min(Number(movieMeta?.total_pages)|| 1,500)
+
+    const totalPages = Math.min(Number(meta?.total_pages)|| 1,500)
     return (
         <div className="paginationForMovies">
             <button onClick={() => {

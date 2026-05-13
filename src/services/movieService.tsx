@@ -1,6 +1,6 @@
 import type {IMoviesGeneral} from "../modules/MoviesModules/IMoviesGeneral.ts";
 import {endpoints} from "../constants/endpoints.ts";
-import {movieTMDBapi} from "./MovieTMDBapi.tsx";
+import {movieTMDBapi} from "./movieTMDBapi.tsx";
 
 
 export const getMovies = async (page:number):Promise<IMoviesGeneral> => {

@@ -2,7 +2,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {getMovies} from "../../services/movieService.tsx";
 import {getMoviesByGenres} from "../../services/movieByGenreService.tsx";
 import {getMovieByID} from "../../services/movieByIDService.tsx";
-import {searchMovie} from "../../services/SearchMovieService.tsx";
+import {searchMovie} from "../../services/searchMovieService.tsx";
 
 
 export const loadMovies = createAsyncThunk(

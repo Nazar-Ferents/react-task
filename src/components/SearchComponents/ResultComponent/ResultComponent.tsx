@@ -2,15 +2,15 @@ import {MovieListCardComponent} from "../../MovieComponents/MovieListsComponents
 import {useAppSelector} from "../../../redux/hooks/useAppSelector.tsx";
 import {useSearchParams} from "react-router-dom";
 import {useEffect} from "react";
-import {movieSliceActions} from "../../../redux/slices/movieSlice.ts";
 import {useAppDispatch} from "../../../redux/hooks/useAppDispatch.tsx";
 import LoaderComponent from "../../LoaderComponents/LoaderComponent.tsx";
+import {movieSearchSliceActions} from "../../../redux/slices/movieSearchSlice.ts";
 
 
 const ResultComponent = () => {
 
     const {movieSearch,movieSearchStatus} = useAppSelector(
-        ({movieSlice}) => movieSlice)
+        ({movieSearchSlice}) => movieSearchSlice)
 
     const {genres} = useAppSelector(
         ({genreSlice}) => genreSlice);
@@ -25,7 +25,7 @@ const ResultComponent = () => {
 
 
         if(title) {
-                dispatch(movieSliceActions.loadFindingMovies({title:title,page:pg}))
+                dispatch(movieSearchSliceActions.loadFindingMovies({title:title,page:pg}))
              }
 
     },[title,pg])
