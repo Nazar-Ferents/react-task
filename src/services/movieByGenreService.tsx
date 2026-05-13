@@ -1,12 +1,12 @@
-import type {IMovie} from "../modules/MoviesModules/IMovie.ts";
 import {movieTMDBapi} from "./MovieTMDBapi.tsx";
 import {endpoints} from "../constants/endpoints.ts";
+import type {IMoviesGeneral} from "../modules/MoviesModules/IMoviesGeneral.ts";
 
 
 export const getMoviesByGenres = async (
-                     {genreID,page}:{genreID:number,page:number}):Promise<IMovie[]> => {
+                     {genreID,page}:{genreID:number,page:number}):Promise<IMoviesGeneral> => {
 
     const {data} = await movieTMDBapi.get(endpoints.movies.allMoviesByGenre({genreID,page}))
-    const {results:MoviesBeGenresArray} = data
-    return MoviesBeGenresArray;
+
+    return data
 }

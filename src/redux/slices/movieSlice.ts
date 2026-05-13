@@ -2,19 +2,21 @@ import {createSlice, type PayloadAction} from "@reduxjs/toolkit";
 import type {IMovie} from "../../modules/MoviesModules/IMovie.ts";
 import {loadFindingMovies, loadMovies, loadMoviesByGenres, loadMoviesByID} from "../functions/functionsForMovieSlice.ts";
 import type {IMovieDetails} from "../../modules/MoviesModules/IMovieDetails.ts";
+import type {IMoviesGeneral} from "../../modules/MoviesModules/IMoviesGeneral.ts";
 
 interface IMovieSlice {
     movies: IMovie[];
     moviesByGenres: IMovie[];
     movieDetails: IMovieDetails | null;
     movieSearch: IMovie[];
+    movieMeta: IMoviesGeneral | null;
     moviesStatus:'initial'|'loading'|'success'|'error';
     moviesByGenreStatus:'initial'|'loading'|'success'|'error';
     movieDetailsStatus:'initial'|'loading'|'success'|'error';
     movieSearchStatus:'initial'|'loading'|'success'|'error';
 }
 
-const movieInitialState:IMovieSlice = {movies:[],moviesByGenres:[], movieDetails:null,movieSearch:[],
+const movieInitialState:IMovieSlice = {movies:[],moviesByGenres:[], movieDetails:null,movieSearch:[],movieMeta:null,
     moviesStatus: 'initial',moviesByGenreStatus: 'initial',movieDetailsStatus:'initial',movieSearchStatus:'initial'};
 
 
@@ -31,8 +33,9 @@ export const movieSlice = createSlice({
                 })
 
             .addCase(loadMovies.fulfilled,
-                (state, action:PayloadAction<IMovie[]>) => {
-                state.movies = action.payload;
+                (state, action:PayloadAction<IMoviesGeneral>) => {
+                state.movies = action.payload.results;
+                state.movieMeta = action.payload
                 state.moviesStatus = 'success'
 
                 })
@@ -48,9 +51,10 @@ export const movieSlice = createSlice({
                     state.moviesByGenres = []
                 })
             .addCase(loadMoviesByGenres.fulfilled,
-                (state,action:PayloadAction<IMovie[]>) =>{
+                (state,action:PayloadAction<IMoviesGeneral>) =>{
 
-                state.moviesByGenres = action.payload;
+                state.moviesByGenres = action.payload.results;
+                state.movieMeta = action.payload
                 state.moviesByGenreStatus = 'success'
 
             })
@@ -80,8 +84,9 @@ export const movieSlice = createSlice({
                     state.movieSearch = []
                 })
             .addCase(loadFindingMovies.fulfilled,
-                (state, action:PayloadAction<IMovie[]>) => {
-                state.movieSearch = action.payload;
+                (state, action:PayloadAction<IMoviesGeneral>) => {
+                state.movieSearch = action.payload.results;
+                state.movieMeta = action.payload
                 state.movieSearchStatus = 'success'
                 })
             .addCase(loadFindingMovies.rejected,

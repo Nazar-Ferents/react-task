@@ -1,4 +1,5 @@
 import {useSearchParams} from "react-router-dom";
+import {useAppSelector} from "../redux/hooks/useAppSelector.tsx";
 
 const PaginationForMovies = () => {
 
@@ -9,6 +10,9 @@ const PaginationForMovies = () => {
         params.set('pg',newPage.toString());
         setQuery(params);
     }
+
+    const{movieMeta} = useAppSelector(({movieSlice}) => movieSlice)
+    const totalPages = Math.min(Number(movieMeta?.total_pages)|| 1,500)
     return (
         <div className="paginationForMovies">
             <button onClick={() => {
@@ -18,10 +22,11 @@ const PaginationForMovies = () => {
                     }
 
             }}>prev</button>
-            <p>{currentPage}</p>
+            <p>{currentPage} / {totalPages}</p>
             <button onClick={() => {
 
-                    if(currentPage < 500){
+
+                if(currentPage < totalPages){
                         changePage(currentPage + 1)
                     }
                 }
