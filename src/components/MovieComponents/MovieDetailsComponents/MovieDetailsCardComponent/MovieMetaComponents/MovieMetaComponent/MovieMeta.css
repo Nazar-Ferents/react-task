@@ -1,0 +1,37 @@
+.infoContainer{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: linear-gradient(180deg, #07111f 0%, #0b1730 100%);
+    padding: 30px;
+    margin: 30px 0 20px 0;
+    gap: 20px;
+    font-size: 17px;
+    color: #a3b3c8;
+
+}
+
+
+.infoContainer>a{
+    color:#00bfff;
+    font-size: 16px;
+    font-weight: 700;
+    width:90px;
+}
+
+.infoContainer>a:hover{
+    color:rgba(0,191,255,0.2)
+}
+
+.infoContainer>a:active{
+    color: rgb(105, 200, 234);
+}
+
+.infoContainer>a:visited{
+    color: rgb(20, 68, 213);
+}
+
+.overviewFull{
+    font-size: 18px;
+    color: #e3e3e3;
+}

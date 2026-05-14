@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import UserInfoComponent from "../UserComponents/UserInfoComponent/UserInfoComponent.tsx";
 import SearchComponent from "../SearchComponents/SearchComponent/SearchComponent.tsx";
+import './header.css'
 
 
 const Header = () => {

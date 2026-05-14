@@ -1,0 +1,21 @@
+@media (max-width: 768px) {
+
+    .wrapper {
+        padding: 0 10px;
+    }
+
+    .main-container{
+        width: 95%;
+        padding: 15px;
+    }
+
+    .moviesGrid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+
+    .gridForInfo {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}

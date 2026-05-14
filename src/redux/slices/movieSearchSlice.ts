@@ -22,6 +22,7 @@ export const movieSearchSlice = createSlice({
             .addCase(loadFindingMovies.pending,
                 (state) => {
                     state.movieSearchStatus = 'loading'
+                    state.movieSearch=[]
 
 
                 })

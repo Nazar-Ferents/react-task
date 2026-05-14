@@ -8,8 +8,11 @@ type BadgePropsType = {
 }
     export const GenreBadge:FC<BadgePropsType> = ({genreID,name}) => {
 
+
+
     return (
-        <Link to={`/movieByGenres/${genreID}`} className='badge'>{name}</Link>
+        <Link to={`/movieByGenres/${genreID}`} className='badge' onClick={
+            (e) => e.stopPropagation()}>{name}</Link>
     )
     }
 

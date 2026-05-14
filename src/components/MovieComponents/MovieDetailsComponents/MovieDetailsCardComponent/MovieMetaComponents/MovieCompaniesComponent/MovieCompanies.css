@@ -1,0 +1,23 @@
+
+.company{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+.logoForCompanies{
+    width: 20%;
+}
+
+@media (max-width: 768px) {
+    .company {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logoForCompanies {
+        width: 60%;
+    }
+}

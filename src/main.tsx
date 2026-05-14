@@ -1,5 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
+import './responsiveFor(768).css'
+import './responsiveFor(768-1279).css'
 import {RouterProvider} from "react-router-dom";
 import {routes} from "./routes/routes.tsx";
 import {Provider} from "react-redux";

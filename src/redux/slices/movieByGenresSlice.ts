@@ -22,6 +22,7 @@ export const movieByGenresSlice = createSlice({
             .addCase(loadMoviesByGenres.pending,
                 (state) => {
                     state.moviesByGenreStatus = 'loading'
+                    state.moviesByGenres = []
 
 
                 })

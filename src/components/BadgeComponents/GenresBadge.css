@@ -1,4 +1,6 @@
 .badge {
+    display: inline-flex;
+    white-space: nowrap;
     padding: 4px 8px;
     border-radius: 12px;
     background: #00bfff;
@@ -18,7 +20,6 @@
 
 
 .containerForBadges {
-    max-height: 50px;
     display: flex;
     gap: 5px;
     flex-wrap: wrap;

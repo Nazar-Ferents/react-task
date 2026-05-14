@@ -4,6 +4,7 @@ import {useAppDispatch} from "../../../../redux/hooks/useAppDispatch.tsx";
 import {movieSliceActions} from "../../../../redux/slices/movieSlice.ts";
 import MovieDetailsCardComponent from "../MovieDetailsCardComponent/MovieDetailsCardComponent/MovieDetailsCardComponent.tsx";
 import {backgroundURL, posterURL} from "../../../../constants/constants.ts";
+import './MovieDetailsPage.css'
 
 type PropsType = {
     movieID: string

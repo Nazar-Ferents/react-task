@@ -3,6 +3,7 @@ import {posterURL} from "../../../../../constants/constants.ts";
 import MovieHeaderComponent from "../MovieHeaderComponent/MovieHeaderComponent.tsx";
 import MovieMetaComponent from "../MovieMetaComponents/MovieMetaComponent/MovieMetaComponent.tsx";
 import type {MovieDetailsPropsType} from "../../../../../modules/MoviesModules/MovieDetailsPropsType.ts";
+import './MovieDetailsCard.css'
 
 
 const MovieDetailsCardComponent:FC<MovieDetailsPropsType> = ({movieDetails}) => {

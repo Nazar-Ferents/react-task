@@ -1,6 +1,6 @@
 import type {FC} from "react";
 import type {MovieDetailsPropsType} from "../../../../../modules/MoviesModules/MovieDetailsPropsType.ts";
-
+import './MovieHeader.css'
 
 const MovieHeaderComponent:FC<MovieDetailsPropsType> = ({movieDetails}) => {
     return (

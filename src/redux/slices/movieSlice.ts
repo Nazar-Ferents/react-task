@@ -27,6 +27,7 @@ export const movieSlice = createSlice({
             .addCase(loadMovies.pending,
                 (state) =>{
                 state.moviesStatus = 'loading'
+                    state.movies = []
 
 
                 })
@@ -47,6 +48,7 @@ export const movieSlice = createSlice({
             .addCase(loadMoviesByID.pending,
                 (state) => {
                 state.movieDetailsStatus = 'loading'
+                    state.movieDetails = null
 
 
                 })

@@ -1,0 +1,32 @@
+.paginationForMovies{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top:40px;
+}
+.paginationForMovies button{
+    background: #00bfff;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    width: 70px;
+    height: 30px;
+    border-radius: 8px;
+    color: #ffffff;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.paginationForMovies button:hover{
+    opacity: 0.9;
+}
+.paginationForMovies button:active{
+    background:rgba(0,191,255,0.2);
+    transform:translateY(1px);
+}
+
+.paginationForMovies p{
+    font-size:16px;
+    color:#d1d5db;
+}

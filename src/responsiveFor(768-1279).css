@@ -1,0 +1,16 @@
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+
+    .main-container {
+        width: 90%;
+    }
+
+    .moviesGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .gridForInfo {
+        grid-template-columns: 1fr;
+    }
+}
+

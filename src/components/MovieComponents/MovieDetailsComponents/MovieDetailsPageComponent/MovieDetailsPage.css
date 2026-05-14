@@ -1,0 +1,27 @@
+.detailMovie-page{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+
+}
+
+@media (max-width: 768px) {
+
+    .detailMovie-page {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .detailMovie-page {
+        width: 90%;
+    }
+}

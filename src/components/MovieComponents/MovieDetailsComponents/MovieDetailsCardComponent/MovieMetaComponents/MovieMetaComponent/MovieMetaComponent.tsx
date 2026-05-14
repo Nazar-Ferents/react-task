@@ -4,6 +4,7 @@ import MovieLanguagesComponent from "../MovieLanguagesComponent/MovieLanguagesCo
 import type {MovieDetailsPropsType} from "../../../../../../modules/MoviesModules/MovieDetailsPropsType.ts";
 import MovieCompaniesComponent from "../MovieCompaniesComponent/MovieCompaniesComponent.tsx";
 import {GenreBadge} from "../../../../../BadgeComponents/BadgeComponent.tsx";
+import './MovieMeta.css'
 
 
 const MovieMetaComponent:FC<MovieDetailsPropsType> = ({movieDetails}) => {

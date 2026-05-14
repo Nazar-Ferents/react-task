@@ -1,6 +1,7 @@
 import {useSearchParams} from "react-router-dom";
 import type {FC} from "react";
 import type {IMoviesGeneral} from "../../modules/MoviesModules/IMoviesGeneral.ts";
+import './paginatorForMovies.css'
 
 type PropsType = {
     meta:IMoviesGeneral | null

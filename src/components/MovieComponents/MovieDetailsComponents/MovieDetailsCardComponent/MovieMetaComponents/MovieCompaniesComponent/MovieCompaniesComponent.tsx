@@ -1,6 +1,7 @@
 import {posterURL} from "../../../../../../constants/constants.ts";
 import type {MovieDetailsPropsType} from "../../../../../../modules/MoviesModules/MovieDetailsPropsType.ts";
 import type {FC} from "react";
+import './MovieCompanies.css'
 
 const MovieCompaniesComponent:FC<MovieDetailsPropsType> = ({movieDetails}) => {
     return (

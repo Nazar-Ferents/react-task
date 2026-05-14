@@ -1,0 +1,84 @@
+.movieCard{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:24px;
+    transition:0.3s ease;
+    cursor:pointer;
+    padding:25px;
+    width:100%;
+    height:auto;
+}
+
+.movieCard:hover{
+    transform:translateY(-8px);
+    box-shadow: 0 10px 40px rgba(0,191,255,0.18);
+}
+
+.click-container{
+    display: flex;
+    width: 100%;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.movieCardPoster {
+    display: block;
+    border-radius: 10px;
+    width: 90%;
+    object-fit: cover;
+    height: 400px;
+    align-self: center;
+
+}
+
+.movieCardTitle{
+    font-size:20px;
+    font-weight:bold;
+    margin-top: 10px;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow: hidden;
+}
+
+
+.movieCardOverview{
+    color:#9ca3af;
+    font-size:14px;
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+.bottom-block{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top:auto;
+}
+
+@media (max-width: 768px) {
+    .movieCardPoster {
+        display: block;
+        border-radius: 10px;
+        width: 90%;
+        object-fit: cover;
+        height: 80%;
+        align-self: center;
+
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .movieCardPoster {
+        height: 80%;
+    }
+}
+
