@@ -23,11 +23,11 @@ const SearchComponent = () => {
     }
     return (
         <div>
-            <form onSubmit={handleSubmit(requestForFindingMovie)}>
-                <input type="text" {...register('title',{
+            <form className='search_form' onSubmit={handleSubmit(requestForFindingMovie)}>
+                <input className='search_input' type="text" {...register('title',{
                     required:'Enter movie title'
                 })}/>
-                <button type='submit'>Search</button>
+                <button type='submit' className='search_button'>Search</button>
             </form>
 
 

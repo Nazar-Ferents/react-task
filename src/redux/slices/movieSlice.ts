@@ -27,7 +27,8 @@ export const movieSlice = createSlice({
             .addCase(loadMovies.pending,
                 (state) =>{
                 state.moviesStatus = 'loading'
-                    state.movies = []
+
+
                 })
 
             .addCase(loadMovies.fulfilled,
@@ -46,7 +47,8 @@ export const movieSlice = createSlice({
             .addCase(loadMoviesByID.pending,
                 (state) => {
                 state.movieDetailsStatus = 'loading'
-                    state.movieDetails = null
+
+
                 })
             .addCase(loadMoviesByID.fulfilled,
                 (state, action:PayloadAction<IMovieDetails>) => {

@@ -2,9 +2,10 @@
 .userInfo {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     gap: 8px;
+    padding: 10px 0;
 }
 
 .UserAvatar{
@@ -12,10 +13,12 @@
     height: 50px;
     border-radius: 50%;
     background: #444;
+
 }
 
 .UserName{
     font-size: 14px;
+    color: #00bfff;
 }
 
 

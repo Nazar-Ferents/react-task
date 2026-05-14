@@ -4,12 +4,12 @@ import type {MovieDetailsPropsType} from "../../../../../../modules/MoviesModule
 
 const MovieLanguagesComponent:FC<MovieDetailsPropsType> = ({movieDetails}) => {
     return (
-        <div className='languages-container'>
+        <div className='gridForInfo'>
             <p>languages:</p>
-            <ul>
+            <p>
                 {movieDetails.spoken_languages.map(
-                    (language) => (<li key={language.iso_639_1}>{language.english_name}</li>))}
-            </ul>
+                    (language) => language.english_name).join(", ")}
+            </p>
 
         </div>
     );

@@ -7,8 +7,8 @@ const MovieHeaderComponent:FC<MovieDetailsPropsType> = ({movieDetails}) => {
         <div className='movieTitle'>
             <p>{movieDetails.status}</p>
             <h1>{movieDetails.title}</h1>
-            {movieDetails.tagline && <p>'{movieDetails.tagline}'</p>}
-            {movieDetails.vote_average > 0 && <p>{movieDetails.vote_average.toFixed(1)}</p>}
+            {movieDetails.tagline && <p className='quote'>"{movieDetails.tagline}"</p>}
+            {movieDetails.vote_average > 0 && <p className='rate'>{movieDetails.vote_average.toFixed(1)}</p>}
 
         </div>
     );

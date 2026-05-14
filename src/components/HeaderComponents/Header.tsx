@@ -5,9 +5,9 @@ import SearchComponent from "../SearchComponents/SearchComponent/SearchComponent
 
 const Header = () => {
     return (
-        <header>
+        <header className='header'>
 
-            <Link to={'/'}>Movies List</Link>
+            <Link className='link_to_MovieList' to={'/'}>Movies List</Link>
 
             <SearchComponent/>
             <UserInfoComponent />

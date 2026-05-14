@@ -8,12 +8,13 @@ const MoviesByGenres = () => {
 
     const {genreID} = useParams()
     return (
-        <div>
-            <PaginationForMovies meta={movieByGenresMeta}/>
+        <div className='main-container'>
+
             {
                 genreID && <MoviesByGenreListComponent genreID={genreID} />
 
             }
+            <PaginationForMovies meta={movieByGenresMeta}/>
 
 
 

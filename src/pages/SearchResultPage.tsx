@@ -6,9 +6,9 @@ const SearchResultPage = () => {
     const {movieSearchMeta} = useAppSelector(({movieSearchSlice}) => movieSearchSlice)
 
     return (
-        <div>
-            <PaginationForMovies meta={movieSearchMeta}/>
+        <div className='main-container'>
             <ResultComponent/>
+            <PaginationForMovies meta={movieSearchMeta}/>
 
         </div>
     );

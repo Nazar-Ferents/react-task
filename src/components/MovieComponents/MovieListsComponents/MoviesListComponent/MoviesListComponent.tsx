@@ -5,10 +5,9 @@ import {useAppDispatch} from "../../../../redux/hooks/useAppDispatch.tsx";
 import {movieSliceActions} from "../../../../redux/slices/movieSlice.ts";
 import {useSearchParams} from "react-router-dom";
 import {genreSliceActions} from "../../../../redux/slices/genreSlice.ts";
-import LoaderComponent from "../../../LoaderComponents/LoaderComponent.tsx";
 
 const MoviesListComponent = () => {
-    const {movies, moviesStatus} = useAppSelector(({movieSlice}) => movieSlice);
+    const {movies} = useAppSelector(({movieSlice}) => movieSlice);
     const {genres} = useAppSelector(({genreSlice}) => genreSlice);
     const dispatch = useAppDispatch();
 
@@ -24,16 +23,14 @@ const MoviesListComponent = () => {
         }
     },[pg])
 
-if (moviesStatus === 'loading') {
-    return <LoaderComponent/>
-}
 
     return (
-        <div>
+        <div className='moviesGrid'>
 
             {
                 movies.map((movie) => (<MovieListCardComponent key={movie.id} movie={movie} genres={genres} />))
             }
+
         </div>
     );
 };

@@ -3,14 +3,14 @@ import {useAppSelector} from "../../../../redux/hooks/useAppSelector.tsx";
 import {useAppDispatch} from "../../../../redux/hooks/useAppDispatch.tsx";
 import {movieSliceActions} from "../../../../redux/slices/movieSlice.ts";
 import MovieDetailsCardComponent from "../MovieDetailsCardComponent/MovieDetailsCardComponent/MovieDetailsCardComponent.tsx";
-import LoaderComponent from "../../../LoaderComponents/LoaderComponent.tsx";
+import {backgroundURL, posterURL} from "../../../../constants/constants.ts";
 
 type PropsType = {
     movieID: string
 }
 const MovieDetailsPageComponent:FC<PropsType> = ({movieID}) => {
 
-    const {movieDetails, movieDetailsStatus} = useAppSelector(
+    const {movieDetails} = useAppSelector(
        ({movieSlice}) => movieSlice)
 
     const dispatch = useAppDispatch()
@@ -22,17 +22,18 @@ const MovieDetailsPageComponent:FC<PropsType> = ({movieID}) => {
         }
     }, [movieID]);
 
-   if (movieDetailsStatus === 'loading'){
-    return <LoaderComponent/>
-    }
+
    if (!movieDetails) return null
+
+    const backgroundIMG = movieDetails.backdrop_path ? `${posterURL}${movieDetails.backdrop_path}` : backgroundURL
 
     return (
 
-        <div>
+        <div className='detailMovie-page' style={{backgroundImage: `url(${backgroundIMG})`}}>
             {
                 movieDetails && <MovieDetailsCardComponent movieDetails={movieDetails} />
             }
+
         </div>
     );
 };

@@ -4,10 +4,10 @@ import type {MovieDetailsPropsType} from "../../../../../../modules/MoviesModule
 
 const MovieCountriesComponent:FC<MovieDetailsPropsType> = ({movieDetails}) => {
     return (
-        <div className='countries-container'>
+        <div className='gridForInfo'>
             <p>countries: </p>
-            <ul>{movieDetails.production_countries.map(
-                (country) => (<li key={country.iso_3166_1}>{country.name}</li>))}</ul>
+            <p>{movieDetails.production_countries.map(
+                (country) => country.name).join(", ")}</p>
 
         </div>
     );

@@ -6,11 +6,11 @@ const MoviesPage = () => {
     const {movieMeta} = useAppSelector(({movieSlice}) => movieSlice)
 
     return (
-        <div>
-            <PaginationForMovies meta={movieMeta}/>
+        <div className='main-container'>
 
             <MoviesListComponent/>
 
+            <PaginationForMovies meta={movieMeta}/>
         </div>
     );
 };
